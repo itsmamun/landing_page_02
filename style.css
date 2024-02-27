@@ -18,6 +18,7 @@ html, body{
     border-radius: 50%;
     position: fixed;
     z-index: 99;
+    transition: all liner 0.1s;
 }
 
 #cursor-blur{
@@ -28,6 +29,7 @@ html, body{
     position: fixed;
     filter: blur(40px);
     z-index: 9;
+    transition: all linear 0.4s;
 }
 
 #nav{
@@ -41,7 +43,7 @@ html, body{
     justify-content: flex-start;
     font-size: 0.8rem;
     position: fixed;
-    z-index: 99;
+    z-index: 999;
 }
 
 #nav img{
@@ -105,7 +107,7 @@ video{
 }
 
 #page2{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     z-index: 10;
 }
@@ -115,13 +117,19 @@ video{
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+#scroller::-webkit-scrollbar {
+    display: none;
 }
 
 #scroller-in{
     display: inline-block;
     white-space: nowrap;
     animation-name: scroll;
-    animation-duration: 20s;
+    animation-duration: 40s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
@@ -130,18 +138,111 @@ video{
     display: inline-block;
     font-size: 4.5rem;
     font-weight: 900;
-    font-family: Times;
     margin-right: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     color: transparent ;
     -webkit-text-stroke: 2px #95c11e;
+    transition: all linear 0.3s;
+}
+
+#scroller h1:hover {
+    color: #95c11e;
+    -webkit-text-stroke: 2px #95c11e;
+  }
+
+#about{
+    height: 50vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    padding: 0 40px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    justify-content: space-around;
+}
+
+#about img{
+    height: 60%;
+    width: 15%;
+    border-radius: 10%;
+    object-fit: cover;
+}
+
+#about-us{
+    width: 40%;
+    text-align: center;
+}
+
+#about-us h3{
+    font-weight: 800;
+    margin-bottom: 10%;
+
+}
+
+#about-us p{
+    font-weight: lighter;
+    line-height: 20px;
+}
+
+#card-container{
+    /* background-color: red; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5%;
+    position: relative;
+    z-index: 10;
+
+}
+
+.card{
+    height: 80%;
+    width: 28%;
+    /* background-color: blue; */
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+#card-1{
+    background-image: url(Image/card1.avif);
+}
+
+#card-2{
+    background-image: url(Image/card2.webp);
+}
+
+#card-3{
+    background-image: url(Image/card3.avif);
+}
+
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #95c11e;
+    padding: 20%;
+    padding-top: 40%;
+
+}
+
+.overlay h4{
+    color: #000;
+    font-size: 1rem;
+}
+
+.overlay p{
+    color: #000;
+    font-size: 12px;
 }
 
 
-@keyframes scroll{
-    from{
-        transform: translateX(0);
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
     }
-    to{
-        transform: translateX(-100);
+    to {
+      transform: translateX(-100%);
     }
-}
+  }
